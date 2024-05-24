@@ -14,6 +14,11 @@
     --text-cor-primaria:#ffffff;
 }
 
+.container{
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
 html{
     scroll-behavior: smooth;
     background-color: #6e07f3;
@@ -38,10 +43,11 @@ header {
         justify-content: space-around;
         gap: 20px;
 
-        a{
+        a, span{
             color: var(--text-cor-primaria);
             font-weight: 400;
             text-decoration: none;
+            cursor: pointer;
         }
 
         i{
@@ -51,7 +57,7 @@ header {
     }
 }
 
-section.me {
+section.me .container {
     margin-top: 120px;
     width: 100%;
     display: flex;
@@ -70,7 +76,7 @@ section.me {
 
 
     img {
-        width: 10%;
+        width: 150px;
         border-radius: 80px;
         margin-bottom: 20px;
     }
@@ -107,11 +113,12 @@ section#about__me{
     align-items: center;
     flex-direction: column;
     width: 100%;
-    padding: 100px;
+    padding: 100px 60px;
     background-color: var(--cor-terciaria);
 
     h2 {
         margin-bottom: 30px;
+        text-align: center;
     }
 
     p {
@@ -121,22 +128,17 @@ section#about__me{
 }
 
 section#skills{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 100%;
-    padding: 50px;
-    background-color: var(--cor-secundaria);
+    padding: 100px 0;
 
     h2{
         margin-bottom: 30px;
         color: var(--text-cor-primaria);
+        text-align: center;
     }
 
     .cube__skills {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-between;
         width: 100%;
         color: var(--text-cor-primaria);
         
@@ -172,22 +174,17 @@ section#skills{
 }
 
 section#hobbies{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 100%;
-    padding: 50px;
-    background-color: var(--cor-secundaria);
+    padding: 100px 0;
 
     h2{
         margin-bottom: 30px;
         color: var(--text-cor-primaria);
+        text-align: center;
     }
 
     .cube__hobbies{
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-between;
         width: 100%;
     }
     
@@ -228,6 +225,11 @@ section#certificate{
     padding: 60px;
     background-color: var(--cor-terciaria);
 
+    h2{
+        text-align: center;
+        padding: 50px 0;
+    }
+
     .formation{
         display: flex;
         align-items: center;
@@ -256,23 +258,28 @@ section#certificate{
 }
 
 section#professional__experience{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 60px;
     background-color: var(--cor-terciaria);
 
+    h2{
+        text-align: center;
+        padding: 60px 0;
+        margin-top: -2px;
+    }
+
     .projects{
-        padding: 60px;
         width: 100%;
+
+        h2{
+            text-align: start;
+            padding: 0px 0;
+        }
 
         .project{
             display: flex;
-            justify-content: center;
+            justify-content: start;
+            align-items: center;
             flex-wrap: wrap;
-            padding: 50px;
+            padding: 50px 40px;
             gap: 50px;
 
             img{
@@ -283,12 +290,13 @@ section#professional__experience{
 
             &:nth-child(2){
                 flex-direction: row-reverse;
+                justify-content: end;
             }
 
             .btns{
                 display: flex;
                 gap: 15px;
-                padding: 20px;
+                padding: 20px 0;
                 width: 300px;
                 
                 a, .demo{
@@ -416,6 +424,16 @@ footer{
     padding: 20px;
 }
 
+@media screen and (max-width:1030px) {
+    .project{
+        flex-direction: column;
+
+        &:nth-child(2){
+            flex-direction: column !important;
+        }
+    }
+}    
+
 @media screen and (max-width: 940px) {
     header {
         display: none;
@@ -424,22 +442,37 @@ footer{
     section.me{
         margin: 0;
         margin-bottom: 50px;
+
+        img{
+            min-width: 150px;
+        }
+    }
+
+    section#about__me {
+        p{
+            padding: 20px;
+        }
     }
 
     section#skills {
         .cube__skills{
             flex-wrap: wrap;
+            padding: 50px 16px;
+            justify-content: center;
         }
     }
 
     section#hobbies{
         .cube__hobbies{
             flex-wrap: wrap;
+            padding: 50px 16px;
+            justify-content: center;
         }
     }
 
     section#certificate .formation{
         width: 100%;
+        padding: 50px;
 
         .faculdade img{
             width: 100%;
